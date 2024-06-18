@@ -184,12 +184,37 @@ void Akshay()
 {
     int n;
     cin >> n;
-    vi a(n), b(n);
-    rep(i, 0, n) cin >> a[i];
-    rep(i, 0, n) cin >> b[i];
+    vector<pair<int, vector<int>>> v;
+    vector<pair<int, int>> p;
+    rep(i, 0, n)
+    {
+        int x;
+        cin >> x;
+        vi temp(x);
+        rep(j, 0, x) cin >> temp[j];
+        sort(all(temp));
+        int mini = temp[0];
+        int maxi = temp[1];
+        p.pb({mini, maxi});
 
-    vi res;
-    
+        v.pb({x, temp});
+    }
+    if (n == 1)
+    {
+        cout << p[0].first << endl;
+        return;
+    }
+    vi a,b;
+    rep(i,0,n){
+        a.pb(p[i].first);
+        b.pb(p[i].second);
+    }
+    sort(all(a));
+    sort(all(b));
+    int sum = a[0];
+    rep(i,1,n) sum+=b[i];
+    cout<<sum<<endl;
+
 }
 
 int32_t main()
