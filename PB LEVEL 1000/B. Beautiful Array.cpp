@@ -184,16 +184,8 @@
  
  void Akshay()
  {
-     ll n,k,b,s;cin>>n>>k>>b>>s;
-
-     if( ((k*b)+(k-1)*n < s)){
-        cout<<-1<<endl;return;
-     }
-
-     if((k*b) > s) {
-            cout<<-1<<endl;return;
-     }
-
+    ll n,k,b,s;cin>>n>>k>>b>>s;
+    if( ((k*b)+(k-1)*n < s or ((k*b) > s))) cout<<-1<<endl;return;
     vll ans(n,0);
     ll sum = k*b;
     ans[n-1] = k*b;
